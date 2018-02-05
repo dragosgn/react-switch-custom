@@ -27,9 +27,9 @@ const styles = {
 const Root = styled.div`
   display: flex;
   align-items: center;
-  .rc-switch .rc-switch-checked {
-    border: 1px solid red;
-    background-color: red;
+  .rc-switch.rc-switch-checked {
+    border: 1px solid #9dc217;
+    background-color: #9dc217;
   }
 `
 
