@@ -7,6 +7,13 @@ import Toggle from 'react-toggle'
 import "react-toggle/style.css" // for ES6 modules
 
 
+import { Field } from 'redux-form'
+import { Provider } from "react-redux"
+import { reduxForm } from 'redux-form'
+import { createStore, combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
+
+
 
 const styles = {
   fontFamily: 'sans-serif',
