@@ -40,13 +40,14 @@ const Values = styled.div`
 
 class ToogleRender extends React.Component{
   render(){
+    console.log(this.props.input.value)
     return(
       <Root>
         <Switch
           onChange={this.props.input.onChange}
           value={this.props.input.value}
         />
-        <Values>Values: {this.props.input.value}</Values>
+        <Values>Values: {String(this.props.input.value)}</Values>
       </Root>
     )
   }
