@@ -22,6 +22,7 @@ const Root = styled.div`
   }
   .react-toggle--checked .react-toggle-thumb {
   border-color: #ab199f;
+  outline: none;
   }
   .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
     background-color: #ab199f;
@@ -34,7 +35,7 @@ const Span = styled.span`
   align-items: center;
 `
 
-
+// colors to be replaced with custom
 
 class ToogleRender extends React.Component{
   constructor(props){
