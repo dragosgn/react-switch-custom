@@ -72,6 +72,9 @@ class ToogleRender extends React.Component{
   }
 }
 
+
+const store = createStore(rootReducer)
+
 const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
@@ -81,4 +84,6 @@ const App = () => (
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(<Provider>
+  <App />
+</Provider>, document.getElementById('root'));
