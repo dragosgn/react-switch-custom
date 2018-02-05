@@ -35,6 +35,7 @@ const Root = styled.div`
 
 const Values = styled.div`
   display:flex;
+  color: #9dc217;
 `
 
 class ToogleRender extends React.Component{
@@ -45,7 +46,7 @@ class ToogleRender extends React.Component{
           onChange={this.props.input.onChange}
           value={this.props.input.value}
         />
-        <Values>Value: {this.props.input.value}</Values>
+        <Values>Values: {this.props.input.value}</Values>
       </Root>
     )
   }
