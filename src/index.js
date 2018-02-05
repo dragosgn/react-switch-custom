@@ -2,8 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import styled from "styled-components"
+import Switch from 'rc-switch';
 
-import Toggle from 'react-toggle'
+
 import "react-toggle/style.css" // for ES6 modules
 
 
@@ -44,34 +45,39 @@ const Span = styled.span`
 
 // colors to be replaced with custom
 
+const Values = styled.div`
+  display:flex;
+`
+
 class ToogleRender extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      tofuIsReady: false
-    }
-
-    this.handleTofuChange = this.handleTofuChange.bind(this)
-  }
-
-  handleTofuChange() {
-    this.setState({
-      tofuIsReady: !this.state.tofuIsReady
-    })
-  }
   render(){
+    const {value} = this.props.input
+    console.log(value)
     return(
       <Root>
-          <Toggle
-            defaultChecked={this.state.tofuIsReady}
-            icons={false}
-            onChange={this.handleTofuChange} />
-        <Span>{this.state.tofuIsReady ? "Tofu ready" : "Tofu not ready"}</Span>
+          
+          <Values>Value: {value}</Values>
       </Root>
     )
   }
 }
 
+
+let SwitchForm = props => {
+  const { handleSubmit } = props
+  return <form onSumbit={handleSubmit} >
+    <Field name="status" component={ToogleRender} type="text" />
+  </form >
+}
+
+SwitchForm = reduxForm({
+  // a unique name for the form
+  form: 'switch'
+})(SwitchForm)
+
+const rootReducer = combineReducers({
+  form: formReducer
+})
 
 const store = createStore(rootReducer)
 
@@ -79,11 +85,10 @@ const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
     <h2>Start editing to see some magic happen {'\u2728'}</h2>
-
-    <ToogleRender />
+    <SwitchForm />
   </div>
 );
 
-render(<Provider>
+render(<Provider store={store}>
   <App />
 </Provider>, document.getElementById('root'));
