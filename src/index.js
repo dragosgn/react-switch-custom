@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import styled from "styled-components"
 import Switch from 'rc-switch';
+import 'rc-switch/assets/index.css';
+
 
 
 import "react-toggle/style.css" // for ES6 modules
@@ -25,25 +27,11 @@ const styles = {
 const Root = styled.div`
   display: flex;
   align-items: center;
-  .react-toggle--checked .react-toggle-track {
-    background-color: #ab199f;
+  .rc-switch .rc-switch-checked {
+    border: 1px solid red;
+    background-color: red;
   }
-  .react-toggle--checked .react-toggle-thumb {
-  border-color: #ab199f;
-  outline: none;
-  }
-  .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #ab199f;
-}
 `
-
-const Span = styled.span`
-  padding-left: 1rem;
-  display: flex;
-  align-items: center;
-`
-
-// colors to be replaced with custom
 
 const Values = styled.div`
   display:flex;
@@ -51,12 +39,13 @@ const Values = styled.div`
 
 class ToogleRender extends React.Component{
   render(){
-    const {value} = this.props.input
-    console.log(value)
     return(
       <Root>
-          
-          <Values>Value: {value}</Values>
+        <Switch
+          onChange={this.props.input.onChange}
+          value={this.props.input.value}
+        />
+        <Values>Value: {this.props.input.value}</Values>
       </Root>
     )
   }
